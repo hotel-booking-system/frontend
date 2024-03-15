@@ -1,0 +1,116 @@
+/**.home-describe {
+    width: 300px; Largura da div 
+    margin-top: 200px; Margem superior 
+    margin-left: 50px; /* Margem esquerda 
+    
+}**/
+.navbar img{
+    width: 40px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Isso alinha os elementos à esquerda e à direita */
+    align-items: center; /* Isso centraliza verticalmente os elementos */
+    background-color: #243945; /* Cor de fundo da barra de navegação */
+    padding: 10px;
+  }
+  
+  .button-registro {
+    display: flex; /* Isso garante que os botões fiquem em linha */
+  }
+  
+  .button-registro button {
+    margin-left: 10px; /* Espaçamento entre os botões */
+    padding: 5px 10px; /* Espaçamento interno dos botões */
+    background-color: #243945;
+    color: white; /* Cor do texto dos botões */
+    border: none; /* Remove a borda dos botões */
+    cursor: pointer; /* Altera o cursor ao passar por cima dos botões */
+  }
+  
+  .button-registro button:hover {
+    background-color: #45a049; /* Mudança de cor ao passar o mouse */
+  }
+  
+  /* Estilos para o parágrafo */
+  .navbar p {
+    margin: 10px; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimento padrão */
+    color: white; /* Cor do texto */
+  }
+
+body{
+    background-color: #f0f0f0;
+}
+.container {
+    display: flex;
+    width: 100%; /* Ocupar toda a largura da tela */
+    height: 100vh; /* Ocupar toda a altura da tela */
+}
+
+.meia-tela{
+    width: 45%; /* Cada div ocupa metade da largura do contêiner */
+    height: 100%; /* Ambas divs ocupam toda a altura do contêiner */
+}
+.outra-metade {
+    width: 55%; /* Cada div ocupa metade da largura do contêiner */
+    height: 100%; /* Ambas divs ocupam toda a altura do contêiner */
+}
+
+.meia-tela {
+    margin-top: -60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;/
+}
+
+.home-describe {
+    margin-top:0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Centraliza o texto horizontalmente */
+}
+
+.home-describe h1 {
+    color: #243945;
+    font-size: 32px;
+    font-weight:700 ;
+    font-family:'montserrat, Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: -10px;
+}
+
+.home-describe p {
+    font-family:'montserrat, Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: -1px;
+}
+#text-hosp{
+    width: 450px;
+    font-weight: 300;
+    font-family:'montserrat, Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.outra-metade {
+    display: flex;
+    height: 100vh;
+}
+
+.coluna {
+    width: 33.33%; /* Divide a tela em três colunas */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -20px;
+}
+
+.coluna img {
+    display: block;
+    margin-bottom: 40px; /* Espaçamento entre as imagens */
+    width: 200px;
+    height: 130px;
+    border-radius: 8px;
+}
