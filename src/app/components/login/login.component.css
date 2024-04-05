@@ -1,103 +1,102 @@
-.navbar button{
-  font-size: 15px;
-  font-family:'montserrat, Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  right: 10px;
-  cursor: pointer;
-}
-
-#login{
-  width: 80px;
-}
-#register{
-  width: 80px;
-}
-.navbar{
-  width: 100%;
-  height: 50px;
-  background-color: #243945;
-}
-button{
-  width: 230px;
-  height: 40px;
-  border: none;
-  border-radius: 8px;
-  background-color: #243945
+body{
+  background-color: #ffff
   ;
-  color: white;
+}
+.container {
+  display: flex;
+  width: 100%; /* Ocupar toda a largura da tela */
+  height: 600px;
+}
+
+.meia-tela{
+  background-color:#f07d14; /* Cor de fundo da barra de navegação */
+  width: 50%; /* Cada div ocupa metade da largura do contêiner */
+  height: 100%; /* Ambas divs ocupam toda a altura do contêiner */
+  display: flex; 
+}
+.outra-metade {
+  width: 50%; /* Cada div ocupa metade da largura do contêiner */
+  height: 100%; /* Ambas divs ocupam toda a altura do contêiner */
+  display: flex;
+}
+.info{
+  width: 450px;
+  height: 300px;
+  transform: translate(10%, 55%);
+}
+.info img{
+  width: 40px;
+  margin-bottom: -5px;
+}
+.info span{
+  
+  font-size: 32px;
+  color:#fff;
+  margin-left: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+}
+.info p{
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-top:20px;
+
+
+}
+#inform {
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
- }
-img{
-  width: 100%;
-  height: 545px;
-} 
-.form-container {
- width: 380px; 
- height: 260px;
- border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.5); /* Branco com 50% de transparência */
-  position: absolute;
-  top: 350px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  margin-top: 25px;
 }
 
-.form-container form{
-  margin-top: 40px;
+
+.formulario{
+  align-items: center;
+  width: 450px;
+  height: 330px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra à div */
+  transform: translate(25%, 30%);
+  border-radius: 16px;
+  }
+.formulario p{
+  margin-top: 20px;
+  margin-left: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
 }
-.form-container input{
- 
-  width: 320px;
-  height: 40px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.5); /* Branco com 50% de transparência */
+form input{
   border-radius: 8px;
+  border: 1px solid #ccc; /* Adiciona uma borda cinza com 1px de espessura */
+  width: 400px;
+  height: 35px;
   margin-bottom: 20px;
-  font-size: 15px;
-  font-weight: 500;
-  font-family:'montserrat, Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 20px;
 }
-.form-container input:focus {
-  outline: none;
+.formulario input:hover {
+  border-color: #f07d14; /* Muda a cor da borda para azul quando o mouse está sobre o input */
 }
-
-button{
- width: 150px;
- height: 40px;
- border: none;
- border-radius: 8px;
- background-color: #243945
- ;
- color: white;
- font-size: 16px;
- font-weight: 500;
- cursor: pointer;
+.button-custom {
+  margin-left: 20px;
+  width: 400px;
+  height: 35px;
+  border-radius: 8px;
+  background-color: #f07d14;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
-p{
-  font-size: 17px;
-  color: white;
-  font-family:'montserrat, Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-a{
-  color: #243945;
-  font-family:'montserrat, Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-}
-
-@media screen and (max-width: 430px) {
-  
-  .form-container {
-    width: 280px; 
-   }
-
-  .form-container input{
-  
-    width: 200px;
-  }
-
-  button{
-    width: 200px;
-  }
+.custom-button{
+  margin-left: 20px;
+  width: 400px;
+  height: 35px;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #ccc; /* Adiciona uma borda cinza com 1px de espessura */
+  cursor: pointer;
+  margin-bottom: 10px;
 }

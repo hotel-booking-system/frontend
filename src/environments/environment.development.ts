@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
-    rooturl: 'http://localhost:8888/api/hotel'
-  };
+  production: false,
+  rootUrl: 'http://localhost:8585/api/v1' // Defina a URL dentro da propriedade rootUrl
+};

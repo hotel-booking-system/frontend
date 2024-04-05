@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-  <div class="navbar">
-    <div class="button-registro">
-      <button id="login">Entrar</button>
-      <button id="register">Cadastre-se</button>
-    </div>
-  </div> 
-<div class="container">
-  
-  <div class="img"> <img src="./assets/1.png" alt="">
-   </div>   
-</div>
 
-<div class="form-container">
-  <h2>Cadastre-se</h2>
-  <form (ngSubmit)="onSubmit()">
-    <div>
-      <input type="text" id="documentNumber" name="documentNumber" [(ngModel)]="register.name" required placeholder="CPF/CNPJ:">
+    <div class="container">
+        <div class="meia-tela">
+          <div class="info">
+         <img src="assets/simbolo.png" alt="">
+         <span>Hotel Booking</span>
+        <p>O lugar onde hóspedes e </p>
+        <p>hotéis se encontram.</p>
+        <p id="inform"> Simples, fácil e conveniente.</p>
+        </div>
+      </div>
+      
+        <div class="outra-metade">
+          <div class="formulario">
+            <form (ngSubmit)="onSubmit()">
+              
+              <p><strong>Criar conta</strong></p>
+              
+              <div>
+                <input type="text" id="documentNumber" name="documentNumber" [(ngModel)]="register.name" required placeholder="CPF/CNPJ:">
+              </div>
+              <div>
+                <input type="email" id="email" name="email" [(ngModel)]="register.email" required placeholder="E-mail:">
+              </div>
+              <div>
+                <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="register.phoneNumber" required placeholder="Telefone:">
+              </div>
+              <div>
+                <input type="password" id="senha" name="password" [(ngModel)]="register.password" required placeholder="Senha:">
+              </div>
+              <button type="submit" class="button-custom">Cadastrar</button>
+              <button type="submit" class="custom-button">Criar conta</button>
+          
+            </form>
+        </div>
+      </div>
     </div>
-    <div>
-      <input type="email" id="email" name="email" [(ngModel)]="register.email" required placeholder="E-mail:">
-    </div>
-    <div>
-      <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="register.phoneNumber" required placeholder="Telefone:">
-    </div>
-    <div>
-      <input type="password" id="senha" name="password" [(ngModel)]="register.password" required placeholder="Senha:">
-    </div>
-    <button type="submit">Cadastrar</button>
-  </form>
-</div> 
+    
 </body>
 </html>
