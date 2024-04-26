@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators} from '@angular/forms'; // exemplo Ju
+import { FormControl, FormGroup, Validators } from '@angular/forms'; // exemplo Ju
 import { RegisterService } from './../../service/register.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { RegisterService } from './../../service/register.service';
 export class RegisterComponent  implements OnInit {
 
 registerForm : FormGroup;
-userId!: Number;
+id!: Number;
   
   public constructor(private registerService : RegisterService) {
     this.registerForm = new FormGroup({
@@ -22,14 +22,14 @@ userId!: Number;
     })
   }
   ngOnInit(): void {
-    const userId = sessionStorage.getItem('userId');
-    this.userId = userId ? Number(userId) : 0;
+    const id = sessionStorage.getItem('id');
+    this.id = id ? Number(id) : 0;
   }
   
 
   cadastrar() {
     if (this.registerForm.valid) {
-      const formValues = { ...this.registerForm.value, userId: this.userId };
+      const formValues = { ...this.registerForm.value, id: this.id };
   
       this.registerService.registerUser(formValues).subscribe({
         next: (response) => {
