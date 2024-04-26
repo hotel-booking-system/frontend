@@ -10,7 +10,7 @@ import { RegisterService } from './../../service/register.service';
 export class RegisterComponent  implements OnInit {
 
 registerForm : FormGroup;
-id!: Number;
+id!: number;
   
   public constructor(private registerService : RegisterService) {
     this.registerForm = new FormGroup({
