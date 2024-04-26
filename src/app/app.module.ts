@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 // Importe os módulos do Angular Material que você deseja utilizar
@@ -25,10 +26,10 @@ import { MatIconModule } from '@angular/material/icon';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    // Adicione os módulos do Angular Material aos imports
     MatButtonModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

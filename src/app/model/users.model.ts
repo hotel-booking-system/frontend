@@ -1,18 +1,18 @@
 export class Usuario {
 
-    // id: number;
-    // active
-    // 
+    id: number;
+    active : boolean;
     documentNumber: string;
-    email: string;
+    username: string;
     phoneNumber: string;
     password: String;
 
-    constructor( documentNumber: string, email: string, phoneNumber: string, password: String) {
-
-      this.documentNumber = documentNumber;
-      this.email = email;
-      this.phoneNumber = phoneNumber;
-      this.password = password;
+    constructor( id?: number, active? : boolean, documentNumber?: string, username?: string, phoneNumber?: string, password?: String) {
+      this.id = id ||0;
+      this.active = active || true;
+      this.documentNumber = documentNumber || '';
+      this.username = username || '';
+      this.phoneNumber = phoneNumber || '';
+      this.password = password || '';
     }
   }

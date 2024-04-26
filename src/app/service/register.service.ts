@@ -15,7 +15,7 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   // Método para criar um novo usuário
-  createUser(userData: any): Observable<any> {
+  registerUser(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, userData);
   }
 
