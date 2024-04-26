@@ -1,18 +1,14 @@
-export class Usuario {
+export interface Usuario {
 
-    // id: number;
-    // active
-    // 
-    documentNumber: string;
-    email: string;
-    phoneNumber: string;
-    password: String;
+  id?: bigint;
 
-    constructor( documentNumber: string, email: string, phoneNumber: string, password: String) {
+  name: string;
+  username: string;
+  password: string;
+  phoneNumber: string;
+  documentNumber: string;
 
-      this.documentNumber = documentNumber;
-      this.email = email;
-      this.phoneNumber = phoneNumber;
-      this.password = password;
-    }
-  }
+  createAt?: Date;
+  updatedAt?: Date;
+
+}
