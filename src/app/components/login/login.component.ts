@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UsuarioService } from '../../service/usuario';
+import { UserService } from '../../service/Login/user';
 import { Router } from '@angular/router';
 
 
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   cadastroForm: FormGroup;
   loginForm: FormGroup;
 
-  constructor(private usuarioService: UsuarioService, private router: Router) { 
+  constructor(private userService: UserService, private router: Router) { 
     this.cadastroForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       username: new FormControl('', [Validators.required, Validators.email]),
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   cadastrar() {
     if (this.cadastroForm.valid) {
       console.log(this.cadastroForm.value)
-      this.usuarioService.registerUser(this.cadastroForm.value).subscribe({
+      this.userService.registerUser(this.cadastroForm.value).subscribe({
         next: (response) => {
           console.log('Usuário cadastrado com sucesso!', response)
         },
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         username: this.loginForm.value.email,
         password: this.loginForm.value.senha
       };
-      this.usuarioService.loginUser(userData).subscribe({
+      this.userService.loginUser(userData).subscribe({
         next: (response) => {
           if(response.userId){
             sessionStorage.setItem('userId', response.userId);

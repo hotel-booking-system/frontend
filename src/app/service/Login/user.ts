@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
+export class UserService
+ {
 
   private baseUrl = 'http://localhost:8888/api/v1/users';
   private registerUrl = `${this.baseUrl}/register`;
