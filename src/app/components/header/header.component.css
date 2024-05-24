@@ -1,0 +1,53 @@
+
+.navbar{
+    width: 100%;
+    height: 50px;
+    background-color: #f07d14;
+  }
+  .navbar img{
+    position: relative;
+    width: 30px;
+    left: 25px;
+    top:10px
+  }
+  
+  .navbar p{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 30px;
+    left: 50%;/* Centralizar horizontalmente */
+    font-size: 32px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+  
+  }
+  
+  .navbar button{
+    color: #f07d14;
+    background-color:white;
+    border: none;
+    height: 20px;
+    border-radius: 2px;
+    cursor: pointer ;
+  }
+  
+  .buttonProperty{
+    position: absolute;
+    top: 15px;
+    right: 175px;
+  }
+  #propertyButton{
+    color: white;
+    background-color : #f07d14;
+  }
+  .buttonLogin{
+    position: absolute;
+    top: 15px;
+    right: 25px;
+  }
+  .buttonRegister{
+    position: absolute;
+    top: 15px;
+    right: 80px;
+  }

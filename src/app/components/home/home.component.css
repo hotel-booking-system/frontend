@@ -1,66 +1,169 @@
-header {
-  background-color: #f07d14; /* Cor de fundo da barra de navegação */
-  height: 70px;
+body{
+  margin: 0;
+}
+.search-container {
+  width: 700px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 20%;
+  left: 50%;/* Centralizar horizontalmente */
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse;
+  background-color: #fafafa; /*apagar*/
+  border-radius: 30px;
+  border: 1px solid #f07d14;
+
 }
-.navbar {
-  display: flex;
-  align-items: center;
+.search-txt{
+border: none;
+background: none;
+outline: none;
+padding: 0;
+width: 400px;
+line-height: 30px;
 }
 
-.navbar button {
-  margin-left: 10px;
-  background-color: #fff;
+.search-container img{
+  width: 20px;
+  height: 20px;
+}
+
+
+/*
+
+.search-container input:focus{
+  outline: none;
+}
+#search-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 24px 0px 0px 24px;
+  margin-right: 5px;
+  width:550px; /* Largura ajustável conforme necessário 
+  height: 25px;
+ 
+}
+.search-container  button {
+  position: relative;
+  right: 5px;
+  padding: 12px 12px;
+  background-color: #f07d14;
+  color: #fff;
   border: none;
-  padding: 5px 10px;
+  border-radius: 0px 24px 24px 0px;
   cursor: pointer;
-  margin-left: 0; /* Removendo a margem do lado esquerdo */
-  margin-right: 10px; /* Adicionando margem ao lado direito */
+}
+.search-container img{
+  width: 15px;
+  height: 15px;
+}
+
+
+.filter-buttons{
+  position: relative;
+  text-align: center;
+  top: 70px;
+}
+
+.filter-buttons button {
+    position: relative; /* Define a posição relativa para o botão 
+    border: none;
+    margin-left: 30px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.filter-buttons button img {
+    display: block; /* Torna a imagem um elemento de bloco 
+    width: 30px;
+}
+
+.filter-buttons button span {
+    display: block; /* Torna o span um elemento de bloco *
+    margin-top: 5px; /* Adiciona margem superior para distanciar do topo da imagem *
+    text-align: center; /* Centraliza o texto horizontalmente *
+}
+
+.hospedagens  {
+  position: relative;
+  top: 100px;
+  
+}
+
+.hospedagens div {
+  text-align: center;
+  display: inline-block;
+
+}
+
+.hospedagens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-room {
+  width: 20%;
+  padding: 10px;
+}
+
+.home-room img{
+  width: 280px;
+  height: 200px;
   border-radius: 8px;
 }
 
-.navbar img {
-  width:50px;
-  position: absolute;
-  transform: translate(-500%, 150%);
+.room-link {
+  text-decoration: none; /* Remove a decoração de link *
+
 }
-.navbar p{
-  font-size: 36px;
+
+.home-room p{
+  text-align: justify;
+  font-size: 14px;
+  color: black;
+  margin-bottom: 5px;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.home-room {
+    margin-right: 40px; /* Ajuste este valor conforme necessário *
+}
+
+.home-room:last-child {
+    margin-right: 0; /* Remove a margem da última imagem *
+
+footer {
+  background-color: #f07d14;
   color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 700;
-  position: absolute;
-  width: 400px;
- top: 20px;
- left: 40%;
-}
-
-.navbar  
-{
-display: flex;
-
-}
-.navbar button 
-{
-  margin-left: 10px;
-  background-color: #fff;
-  color: #333;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-
-}
-.img-principal img{
+  padding: 20px 0px;
+  position: relative;
+  top: 100px;
+  bottom: 0;
   width: 100%;
-  height: 450px;
-}
-footer{
-  width: 100%;
-  height: 60px;
-  background-color: #4988af;
+  
+  text-align: center;
 }
 
-
+/* Estilos para a imagem *
+footer img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+/* Estilos para os links *
+footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+*/

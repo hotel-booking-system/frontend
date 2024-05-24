@@ -1,29 +1,47 @@
-import { Component } from '@angular/core';
-import { RegisterService } from './../../service/register.service';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms'; // exemplo Ju
+import { RegisterService } from '../../service/Resgister/register.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent {
-  register = {
-    name: '',
-    email: '',
-    phoneNumber: '',
-    password: ''
-  };
+export class RegisterComponent  implements OnInit {
 
+registerForm : FormGroup;
+id!: number;
+  
   public constructor(private registerService : RegisterService) {
+    this.registerForm = new FormGroup({
 
-  }
-
-  onSubmit() {
-    console.log('register submetido:', this.register);
-    this.registerService.createUser(this.register).subscribe(r => {
-      console.log("Enviou");
+      documentNumber: new FormControl('',[Validators.min(11), Validators.max(11)]),
+      email: new FormControl(''),
+      phoneNumber : new FormControl('',[Validators.min(5), Validators.max(15)]),
+      password: new FormControl(''),
     })
-    // para enviar os dados do formulário para o backend
-    // ou outra ação necessária com os dados.
   }
+  ngOnInit(): void {
+    const id = sessionStorage.getItem('id');
+    this.id = id ? Number(id) : 0;
+  }
+  
+
+  cadastrar() {
+    if (this.registerForm.valid) {
+      const formValues = { ...this.registerForm.value, id: this.id };
+  
+      this.registerService.registerUser(formValues).subscribe({
+        next: (response) => {
+          console.log('Cadastrado com sucesso', response);
+        },
+        error: (error) => {
+          console.error('Erro ao se cadastrar', error);
+        }
+      });
+    } else {
+      console.error('Formulário inválido');
+    }
+  }
+  
 }

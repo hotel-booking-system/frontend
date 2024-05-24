@@ -5,7 +5,7 @@ body{
 .container {
   display: flex;
   width: 100%; /* Ocupar toda a largura da tela */
-  height: 600px;
+  height: 100%;
 }
 
 .meia-tela{
@@ -22,7 +22,7 @@ body{
 .info{
   width: 450px;
   height: 300px;
-  transform: translate(10%, 55%);
+  transform: translate(10%, 60%);
 }
 .info img{
   width: 40px;
@@ -52,16 +52,16 @@ body{
   margin-top: 25px;
 }
 
-.formulario{
+.register-form{
   align-items: center;
   width: 450px;
   height: 400px;
   background-color: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra à div */
-  transform: translate(25%, 20%);
+  transform: translate(25%, 30%);
   border-radius: 16px;
   }
-.formulario p{
+.register-form p{
   margin-top: 20px;
   margin-left: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -76,8 +76,10 @@ form input{
   margin-bottom: 20px;
   margin-left: 20px;
 }
-
-.formulario input:hover {
+.register-form input:focus {
+  outline: none;
+}
+.register-form input:hover {
   border-color: #f07d14; /* Muda a cor da borda para azul quando o mouse está sobre o input */
 }
 .button-custom {
@@ -90,6 +92,7 @@ form input{
   cursor: pointer;
   margin-bottom: 10px;
   margin-bottom: 20px;
+  color: black;
 }
 .custom-button{
   margin-left: 20px;
