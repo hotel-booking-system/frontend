@@ -1,0 +1,43 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+  <div class="update-user-container">
+    <h2 tabindex="0">Atualizar Dados</h2>
+    <form [formGroup]="updateUserForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" id="name" formControlName="name" class="form-control" aria-required="true" aria-describedby="name-error" placeholder="Digite seu nome">
+        <div *ngIf="submitted && updateUserForm.get('name')?.errors" id="name-error">
+          <small *ngIf="updateUserForm.get('name')?.hasError('minlength')">Nome deve ter no mínimo 3 caracteres.</small>
+          <small *ngIf="updateUserForm.get('name')?.hasError('maxlength')">Nome deve ter no máximo 250 caracteres.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phoneNumber">Telefone</label>
+        <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" placeholder="Digite seu telefone">
+        <div *ngIf="submitted && updateUserForm.get('phoneNumber')?.errors">
+          <small *ngIf="updateUserForm.get('phoneNumber')?.hasError('pattern')">Telefone inválido.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Endereço</label>
+        <input type="text" id="address" formControlName="address" class="form-control" placeholder="Digite seu endereço">
+        <div *ngIf="submitted && updateUserForm.get('address')?.errors" id="address-error">
+          <small *ngIf="updateUserForm.get('address')?.hasError('minlength')">Endereço deve ter no mínimo 10 caracteres.</small>
+          <small *ngIf="updateUserForm.get('address')?.hasError('maxlength')">Endereço deve ter no máximo 250 caracteres.</small>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" aria-label="Atualizar" [disabled]="updateUserForm.invalid">Salvar</button>
+        <button type="button" class="btn btn-secondary" aria-label="Voltar" (click)="goBack()">Voltar</button>
+      </div>
+
+      <div *ngIf="successMessage" class="success-message" role="alert">{{ successMessage }}</div>
+
+    </form>
+  </div>
+</div>

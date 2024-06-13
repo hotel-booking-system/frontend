@@ -1,0 +1,20 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 mb-4">
+      <a routerLink="/become-host" class="btn btn-primary">
+        Quer ser um anfitrião? Clique aqui
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let accommodation of accommodations">
+      <app-card [cardData]="accommodation"
+        (onEdit)="editAccommodation(accommodation)"
+        (onViewDetails)="viewDetails(accommodation)"
+        (onDelete)="deleteAccommodation(accommodation)">
+      </app-card>
+    </div>
+  </div>
+</div>

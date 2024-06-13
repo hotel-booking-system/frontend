@@ -1,0 +1,63 @@
+/* Estilos para a barra de navegação */
+.navbar {
+  background-color: #f07d14; /* Cor de fundo */
+}
+
+.navbar-brand, .nav-link {
+  color: #fff !important; /* Cor do texto */
+  font-weight: bold;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%287, 7, 7, 0.7%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-link {
+  &:hover {
+    color: #d4d4d4 !important; /* Cor do texto ao passar o mouse */
+  }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .navbar {
+    .nav-item {
+      text-align: center;
+    }
+  }
+}
+
+/* Estilos para dropdown */
+.dropdown-menu {
+  background-color: #fff; /* Fundo branco */
+  .dropdown-item {
+    color: #f07d14; /* Cor do texto padrão */
+    &:hover {
+      background-color: #f5a060; /* Fundo mais claro ao passar o mouse */
+      color: #fff; /* Cor do texto ao passar o mouse */
+    }
+  }
+}
+
+/* Estilos para modal */
+.modal-content {
+  .modal-header, .modal-footer {
+    background-color: #f07d14;
+    color: #fff;
+  }
+
+  .btn-close {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}

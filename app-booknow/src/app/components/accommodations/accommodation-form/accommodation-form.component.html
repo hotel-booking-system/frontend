@@ -1,0 +1,57 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container mt-4">
+  <div class="accommodation-form-container">
+    <h2 tabindex="0">{{ isEditMode ? 'Editar Acomodação' : 'Cadastrar Acomodação' }}</h2>
+    <form [formGroup]="accommodationForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="title">Título <span class="required-field">*</span></label>
+        <input type="text" id="title" class="form-control" formControlName="title" aria-required="true" aria-describedby="title-error">
+        <div *ngIf="submitted && accommodationForm.get('title')?.invalid" id="title-error">
+          <small *ngIf="accommodationForm.get('title')?.hasError('required')">Título é obrigatório.</small>
+          <small *ngIf="accommodationForm.get('title')?.hasError('minlength')">Título deve ter no mínimo 3 caracteres.</small>
+          <small *ngIf="accommodationForm.get('title')?.hasError('maxlength')">Título deve ter no máximo 50 caracteres.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Localização <span class="required-field">*</span></label>
+        <input type="text" id="location" class="form-control" formControlName="location" aria-required="true" aria-describedby="location-error">
+        <div *ngIf="submitted && accommodationForm.get('location')?.invalid" id="location-error">
+          <small *ngIf="accommodationForm.get('location')?.hasError('required')">Localização é obrigatória.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Preço <span class="required-field">*</span></label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">R$</span>
+          </div>
+          <input type="number" id="price" class="form-control" formControlName="price" aria-required="true" aria-describedby="price-error">
+          <div *ngIf="submitted && accommodationForm.get('price')?.invalid" id="price-error">
+            <small *ngIf="accommodationForm.get('price')?.hasError('required')">Preço é obrigatório.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="maxGuests">Capacidade</label>
+        <input type="number" id="maxGuests" class="form-control" formControlName="maxGuests">
+      </div>
+
+      <div class="form-group">
+        <label for="amenities">Características</label>
+        <input type="text" id="amenities" class="form-control" formControlName="amenities">
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="accommodationForm.invalid">
+        {{ isEditMode ? 'Atualizar' : 'Cadastrar' }}
+      </button>
+
+      <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">{{ successMessage }}</div>
+
+    </form>
+  </div>
+</div>

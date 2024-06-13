@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.update-user-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f07d14;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #f07d14;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+
+      &:focus {
+        outline: none;
+        border-color: #f07d14;
+      }
+    }
+
+    small {
+      color: red;
+      margin-top: 5px;
+    }
+  }
+
+  .form-actions {
+    margin-top: 20px;
+    text-align: center;
+
+    button {
+      display: inline-block;
+      width: auto;
+      padding: 10px 20px;
+      background-color: #f07d14;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        background-color: darken(#f07d14, 10%);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    .btn-secondary {
+      background-color: #ccc;
+      color: #fff;
+
+      &:hover {
+        background-color: darken(#ccc, 10%);
+      }
+    }
+  }
+
+  .success-message {
+    margin-top: 20px;
+    color: #f07d14;
+    font-weight: bold;
+    text-align: center; /* Centraliza a mensagem de sucesso */
+  }
+}

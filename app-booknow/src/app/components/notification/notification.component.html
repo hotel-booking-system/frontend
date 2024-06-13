@@ -1,0 +1,5 @@
+<!-- src/app/components/notification/notification.component.html -->
+
+<div *ngIf="message" class="alert" [ngClass]="'alert-' + type" role="alert">
+  {{ message }}
+</div>
