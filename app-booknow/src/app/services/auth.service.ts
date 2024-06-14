@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { UserRequest } from '../models/user/user-request.model';
 import { UserResponse } from '../models/user/user-response.model';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 // serviços de autenticação
 @Injectable({
@@ -14,8 +15,13 @@ export class AuthService {
 
   private apiUrl = 'http://localhost:8080/booknow/auth';
   private userRoles: string[] = [];
+  private token = this.getToken(); // Obter o token ao inicializar o serviço
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private jwtHelper: JwtHelperService
+  ) { }
 
   signup(userRequest: UserRequest): Observable<UserResponse> {
     return this.http.post<UserResponse>(`${this.apiUrl}/signup`, userRequest);
@@ -34,6 +40,7 @@ export class AuthService {
 
   setToken(token: string): void {
     sessionStorage.setItem('token', token);
+    this.token = token;
   }
 
   getToken(): string | null {
@@ -42,21 +49,36 @@ export class AuthService {
 
   removeToken(): void {
     sessionStorage.removeItem('token');
+    this.token = null;
+    this.userRoles = [];
   }
 
   redirectToHome(): void {
     this.router.navigate(['/home']);
   }
 
+  isAuthenticated(): boolean {
+    return !!this.token && !this.jwtHelper.isTokenExpired(this.token);
+  }
+
   isLoggedIn(): boolean {
     return !!sessionStorage.getItem('token');
   }
 
-  isAuthenticated(): boolean {
-    return !!sessionStorage.getItem('token');
+  // Verifica se o usuário possui uma determinada role
+  hasUserRole(role: string): boolean {
+    if (!this.token || this.jwtHelper.isTokenExpired(this.token)) {
+      return false; // Caso o token não esteja presente ou esteja expirado
+    }
+
+    const decodedToken = this.jwtHelper.decodeToken(this.token);
+    return decodedToken.roles.includes(role);
   }
 
-  // retorna os papéis armazenados no serviço
+  getDecodedToken(): any {
+    return this.jwtHelper.decodeToken(this.token || '');
+  }
+
   getUserRoles(): string[] {
     return this.userRoles;
   }
@@ -66,8 +88,7 @@ export class AuthService {
   }
 
   logout(): void {
-    sessionStorage.removeItem('token');
-    this.userRoles = [];
+    this.removeToken();
   }
 
 }

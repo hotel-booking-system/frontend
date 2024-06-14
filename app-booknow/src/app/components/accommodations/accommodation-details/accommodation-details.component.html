@@ -1,1 +1,17 @@
-<p>accommodation-details works!</p>
+<div class="modal fade" id="accommodationDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ accommodation.title }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Localização:</strong> {{ accommodation.location }}</p>
+        <p><strong>Preço:</strong> R$ {{ accommodation.price | number:'1.2-2' }}</p>
+        <p><strong>Capacidade:</strong> {{ accommodation.maxGuests }}</p>
+        <p><strong>Características:</strong> {{ accommodation.amenities }}</p>
+        <img *ngIf="accommodation.imageUrl" [src]="accommodation.imageUrl" class="img-fluid" alt="Imagem da Acomodação">
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,7 +22,7 @@
     .d-flex {
       display: flex;
       justify-content: space-between;
-      flex-wrap: wrap;
+      align-items: center; // Alinha os botões verticalmente
 
       .btn {
         padding: 10px 20px;
@@ -31,7 +31,7 @@
         cursor: pointer;
         font-size: 16px;
         text-align: center;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
 
         &.btn-primary {
           background-color: #f07d14;
@@ -43,21 +43,41 @@
         }
 
         &.btn-info {
-          background-color: #17a2b8;
+          background-color: #f07d14; // Alterado para a cor solicitada
           color: #fff;
 
           &:hover {
-            background-color: darken(#17a2b8, 10%);
+            background-color: darken(#f07d14, 10%);
+          }
+        }
+
+        &.btn-success {
+          background-color: #f07d14; // Alterado para a cor solicitada
+          color: #fff;
+
+          &:hover {
+            background-color: darken(#f07d14, 10%);
           }
         }
 
         &.btn-danger {
-          background-color: #dc3545;
+          background-color: #f07d14; // Alterado para a cor solicitada
           color: #fff;
 
           &:hover {
-            background-color: darken(#dc3545, 10%);
+            background-color: darken(#f07d14, 10%);
           }
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .d-flex {
+        flex-wrap: wrap;
+
+        .btn {
+          flex: 1 1 100%;
+          margin-bottom: 5px;
         }
       }
     }

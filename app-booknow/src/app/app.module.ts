@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JwtModule } from '@auth0/angular-jwt';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +32,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { AccommodationService } from './services/accommodation.service';
 import { AdminsService } from './services/admins.service';
 import { AuthService } from './services/auth.service';
+import { BookingService } from './services/booking.service';
 import { DataService } from './services/data.service';
 import { NotificationService } from './services/notification.service';
 import { PasswordService } from './services/password.service';
@@ -62,10 +65,21 @@ import { UserService } from './services/user.service';
     FormsModule,
     BrowserAnimationsModule,
     CommonModule,
+    NgbModule,
     ToastrModule.forRoot({ // ToastrModule globalmente
       positionClass: 'toast-top-right', // Posição das mensagens
       preventDuplicates: true, // Evitar mensagens duplicadas
       closeButton: true // Botão de fechar
+    }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          // Define como obter o token JWT (pode ser sessionStorage, localStorage, etc)
+          return sessionStorage.getItem('jwtToken');
+        },
+        //allowedDomains: ['example.com'], // Domínios permitidos para o token (opcional)
+        //disallowedRoutes: ['http://example.com/examplebadroute/'], // Rotas desativadas para o token (opcional)
+      }
     })
   ],
   providers: [
@@ -73,6 +87,7 @@ import { UserService } from './services/user.service';
     AccommodationService,
     AdminsService,
     AuthService,
+    BookingService,
     DataService,
     NotificationService,
     PasswordService,

@@ -1,14 +1,37 @@
+<!-- card.component.html -->
 <div *ngIf="cardData" class="card h-100">
   <div class="card-body">
     <h2 class="card-title">{{ cardData.title }}</h2>
     <p class="card-text">{{ cardData.location }}</p>
-    <p class="card-text">Preço: R$ {{ cardData.price | number:'1.2-2' }}</p>
-    <p class="card-text">Capacidade: {{ cardData.maxGuests }}</p>
-    <p class="card-text">{{ cardData.amenities }}</p>
-    <div class="d-flex justify-content-between mt-3 flex-wrap">
-      <button *ngIf="hasUserRole('USER')" class="btn btn-info" (click)="viewDetails()">Mais Detalhes</button>
-      <button *ngIf="hasUserRole('OWNER')" class="btn btn-primary" (click)="editCard()">Editar</button>
-      <button *ngIf="hasUserRole('OWNER')" class="btn btn-danger" (click)="deleteCard()">Excluir</button>
+    <div class="d-flex justify-content-between mt-3">
+      <button *ngIf="isAuthenticated && hasUserPermission" class="btn btn-info mr-2" (click)="openDetailsModal()">Detalhes</button>
+      <button *ngIf="isAuthenticated && hasUserPermission" class="btn btn-success mr-2" (click)="bookingAccommodation()">Reservar</button>
+      <button *ngIf="isAuthenticated && isOwner" class="btn btn-primary mr-2" (click)="editCard()">Editar</button>
+      <button *ngIf="isAuthenticated && isOwner" class="btn btn-danger" (click)="deleteCard()">Excluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detailsModalLabel">Detalhes da Acomodação</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngIf="selectedAccommodation">
+          <h2>{{ selectedAccommodation.title }}</h2>
+          <p>{{ selectedAccommodation.location }}</p>
+          <p>{{ selectedAccommodation.price }}</p>
+          <p>{{ selectedAccommodation.maxGuests }}</p>
+          <p>{{ selectedAccommodation.amenities }}</p>
+        </ng-container>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
     </div>
   </div>
 </div>

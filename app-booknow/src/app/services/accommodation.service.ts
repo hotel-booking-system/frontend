@@ -32,29 +32,4 @@ export class AccommodationService {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 
-  /*
-    createAccommodation(accommodationData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}`, accommodationData);
-  }
-
-  getAccommodationList(): Observable<any> {
-    return this.http.get(`${this.apiUrl}`);
-  }
-
-  getAccommodationById(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${id}`);
-  }
-
-  updateAccommodation(id: string, accommodationData: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, accommodationData);
-  }
-
-  deleteAccommodation(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
-  }
-
-  getListPublicAccommodations(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/list`);
-  }*/
-
 }

@@ -22,8 +22,16 @@
     "lib": [
       "ES2022",
       "dom"
+    ],
+    "types": [
+      "node",
+      "jquery"  // Adicione aqui o tipo do jQuery se não estiver presente
     ]
   },
+  "include": [
+    "src/**/*.ts",
+    "typings.d.ts"  // Inclua o typings.d.ts aqui se não estiver presente
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
