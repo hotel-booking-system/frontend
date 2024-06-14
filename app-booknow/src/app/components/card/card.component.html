@@ -5,10 +5,10 @@
     <p class="card-text">Preço: R$ {{ cardData.price | number:'1.2-2' }}</p>
     <p class="card-text">Capacidade: {{ cardData.maxGuests }}</p>
     <p class="card-text">{{ cardData.amenities }}</p>
-    <div class="d-flex justify-content-between mt-3">
-      <button class="btn btn-primary" (click)="editCard()">Editar</button>
-      <button class="btn btn-info" (click)="viewDetails()">Mais Detalhes</button>
-      <button class="btn btn-danger" (click)="deleteCard()">Excluir</button>
+    <div class="d-flex justify-content-between mt-3 flex-wrap">
+      <button *ngIf="hasUserRole('USER')" class="btn btn-info" (click)="viewDetails()">Mais Detalhes</button>
+      <button *ngIf="hasUserRole('OWNER')" class="btn btn-primary" (click)="editCard()">Editar</button>
+      <button *ngIf="hasUserRole('OWNER')" class="btn btn-danger" (click)="deleteCard()">Excluir</button>
     </div>
   </div>
 </div>

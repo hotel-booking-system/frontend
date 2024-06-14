@@ -26,17 +26,20 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    // Verificar se já está logado e redirecionar
+    if (this.authService.isAuthenticated()) {
+      this.authService.redirectToHome();
+    }
   }
 
+  // Após o login bem-sucedido, o método redireciona para a página inicial usando redirectToHome(), que é implementado no serviço AuthService.
   onSubmit(): void {
     this.submitted = true;
-    if(this.loginForm.valid) {
+    if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe({
-        next: (response) => {
-          console.log("Login bem-sucedio.");
-          this.authService.setToken(response.token);
+        next: () => {
+          console.log("Login bem-sucedido.");
           this.authService.redirectToHome();
         },
         error: () => this.errorMessage = 'Email ou senha incorretos.'

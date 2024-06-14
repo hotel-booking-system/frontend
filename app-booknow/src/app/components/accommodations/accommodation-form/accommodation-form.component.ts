@@ -81,7 +81,9 @@ export class AccommodationFormComponent implements OnInit {
       this.accommodationService.updateAccommodation(this.accommodationId, accommodationRequest).subscribe({
         next: response => {
           this.successMessage = 'Acomodação atualizada com sucesso!';
-          this.router.navigate(['/']);
+          setTimeout(() => {
+            this.router.navigate(['/home']);
+          }, 2000);
         },
         error: err => {
           console.error('Erro ao atualizar acomodação.', err);
@@ -93,12 +95,18 @@ export class AccommodationFormComponent implements OnInit {
           this.successMessage = 'Acomodação cadastrada com sucesso!';
           this.accommodationForm.reset();
           this.submitted = false;
-          console.log('Acomodação cadastrada com sucesso!', response);
+          setTimeout(() => {
+            this.router.navigate(['/home']);
+          }, 2000);
         },
         error: err => {
           console.error('Erro ao cadastrar acomodação.', err);
         }
       });
     }
+  }
+
+  goBack(): void {
+    this.router.navigate(['/home']);
   }
 }

@@ -46,11 +46,14 @@
         <input type="text" id="amenities" class="form-control" formControlName="amenities">
       </div>
 
-      <button type="submit" class="btn btn-primary" [disabled]="accommodationForm.invalid">
-        {{ isEditMode ? 'Atualizar' : 'Cadastrar' }}
-      </button>
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary" [disabled]="accommodationForm.invalid">
+          {{ isEditMode ? 'Atualizar' : 'Cadastrar' }}
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="goBack()">Voltar</button>
+      </div>
 
-      <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">{{ successMessage }}</div>
+      <div *ngIf="successMessage" class="success-message" role="alert">{{ successMessage }}</div>
 
     </form>
   </div>

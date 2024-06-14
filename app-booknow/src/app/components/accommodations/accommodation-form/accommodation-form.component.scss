@@ -46,18 +46,34 @@
       }
     }
 
+    .input-group {
+      display: flex;
+      align-items: center;
+
+      .input-group-prepend {
+        margin-right: 10px;
+
+        .input-group-text {
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 10px;
+        }
+      }
+    }
+
     small {
       color: red; // Cor do texto de erro
       margin-top: 5px;
       display: block; // Para que as mensagens de erro fiquem uma abaixo da outra
     }
+
   }
 
   .btn-primary {
-    display: block;
-    width: 100%;
+    width: 48%;
     padding: 10px;
-    background-color: #f07d14; // Cor do botão
+    background-color: #f07d14;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -72,6 +88,22 @@
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
+    }
+  }
+
+  .btn-secondary {
+    width: 48%;
+    padding: 10px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken(#6c757d, 10%);
     }
   }
 

@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-4" *ngFor="let accommodation of accommodations">
+    <app-card
+      [cardData]="accommodation"
+      (onEdit)="handleEdit($event)"
+      (onViewDetails)="handleViewDetails($event)"
+      (onDelete)="handleDelete($event)">
+    </app-card>
+  </div>
+</div>
