@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccommodationRequest } from 'src/app/models/accommodation/accommodation-request.model';
 import { AccommodationService } from 'src/app/services/accommodation.service';
+import { AuthService } from 'src/app/services/auth.service';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-accommodation-form',
@@ -16,10 +18,12 @@ export class AccommodationFormComponent implements OnInit {
   successMessage: string | null = null;
   accommodationId?: number;
   isEditMode = false;
+  private deactivateModal: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private accommodationService: AccommodationService,
+    private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -104,6 +108,30 @@ export class AccommodationFormComponent implements OnInit {
         }
       });
     }
+  }
+
+  openDeactivateModal(): void {
+    const modalElement = document.getElementById('deactivateModal');
+    if (modalElement) {
+      this.deactivateModal = new bootstrap.Modal(modalElement);
+      this.deactivateModal.show();
+    } else {
+      console.error('Modal element not found');
+    }
+  }
+
+  deactivateAccount(): void {
+    // Implementar a lógica para desativar a conta
+    // Exemplo: this.authService.deactivateAccount().subscribe(...);
+  }
+
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/']);
   }
 
   goBack(): void {

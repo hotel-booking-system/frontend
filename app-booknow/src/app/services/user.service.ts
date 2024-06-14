@@ -16,34 +16,42 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  private getAuthHeaders(): HttpHeaders {
+    const token = sessionStorage.getItem('token');
+    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  }
+
   registerUser(userRequest: UserRequest): Observable<UserResponse> {
     return this.http.post<UserResponse>(`${this.apiUrl}/register`, userRequest);
   }
 
   updateUser(updateUserRequest: UpdateUserRequest): Observable<any> {
-    return this.http.put(`${this.apiUrl}/update`, updateUserRequest);
+    const headers = this.getAuthHeaders();
+    return this.http.put(`${this.apiUrl}/update`, updateUserRequest, { headers });
   }
 
   updatePassword(updatePasswordRequest: UpdatePasswordRequest): Observable<string> {
-    return this.http.put<string>(`${this.apiUrl}/update-password`, updatePasswordRequest);
+    const headers = this.getAuthHeaders();
+    return this.http.put<string>(`${this.apiUrl}/update-password`, updatePasswordRequest, { headers });
   }
 
-  deactivateUser(token: string): Observable<void> {
-    const headers = { 'Authorization': `Bearer ${token}` };
+  deactivateUser(): Observable<void> {
+    const headers = this.getAuthHeaders();
     return this.http.delete<void>(`${this.apiUrl}/delete`, { headers });
   }
 
   getMyDetails(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/me`);
+    const headers = this.getAuthHeaders();
+    return this.http.get(`${this.apiUrl}/me`, { headers });
   }
 
-  becomeHost(token: string): Observable<void> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  becomeHost(): Observable<void> {
+    const headers = this.getAuthHeaders();
     return this.http.post<void>(`${this.apiUrl}/become-host`, {}, { headers });
   }
 
-  isUserHost(token: string): Observable<boolean> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  isUserHost(): Observable<boolean> {
+    const headers = this.getAuthHeaders();
     return this.http.get<boolean>(`${this.apiUrl}/is-host`, { headers });
   }
 
