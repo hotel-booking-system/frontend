@@ -5,6 +5,154 @@
   height: 100vh;
 }
 
+
+/**/
+.custom-left,
+.custom-right {
+    min-height: 100vh; /* Define a altura mínima para ocupar toda a altura da tela */
+}
+
+.custom-left {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #f07d14; /* Escolha a cor desejada */
+}
+
+.info{
+  width: 380px;
+}
+.info a{
+  
+    font-size: 32px;
+    color:#fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+  }
+  .info p{
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-top:20px;
+  
+  
+  }
+  #inform {
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    margin-top: 25px;
+  }
+
+  .custom-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  form{
+    width: 330px;
+    box-sizing: border-box;
+  }
+
+  form header{
+    font-size:24px ;
+    color: #f07d14;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  .form-group{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 10px 0 10px;
+  }
+
+  .form-control {
+    height: 45px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #f07d14;
+    outline: none;
+  margin-bottom: 20px
+  }
+  .form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .form-group label {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #f07d14;
+  }
+
+  .form-control:focus ~ label,
+.form-control:valid ~ label {
+  top: -10px;
+  font-size: 13px;
+}
+
+form{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra à div */
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  border-radius: 16px;
+}
+.form-group .form-control:focus ~ label{
+  top: -10px;
+  font-size: 13px;
+}
+.form-group .form-control:valid ~ label{
+  top: -10px;
+  font-size: 13px;
+  color: #f07d14;
+}
+
+.form-group .form-control:focus, .form-group .form-control:valid{
+  border-bottom: 1px solid #f07d14;
+}
+.submit{
+ margin-left: 10px;
+  width: 340px;
+  border: none;
+  outline: none;
+  height: 45px;
+  background-color: #f07d14;
+  border-radius: 5px;
+  transition: .4s;
+  color: white;
+}
+.singin{
+  text-align: center;
+  font-size: small;
+  margin-top: 25px;
+}
+span a{
+  text-decoration: none;
+  font-weight: 700;
+  color: #f07d14;
+  transition: .5s;
+}
+
+span a:hover{
+  text-decoration: underline;
+  color: #f07d14;
+  
+}
+
+@media only screen and (max-width:768px) {
+  
+}
+
+
 .login-container {
   max-width: 400px;
   width: 100%;
@@ -29,19 +177,7 @@ h2 {
     color: #f07d14;
   }
 
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
 
-    &:focus {
-      outline: none;
-      border-color: #007bff;
-    }
-  }
 
   .error-message {
     color: red;

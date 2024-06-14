@@ -1,31 +1,54 @@
-<app-nav-bar></app-nav-bar>
-<div class="container">
-  <div class="login-container">
-    <h2 tabindex="0">Seja bem-vindo(a)!</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" formControlName="email" type="email" class="form-control" aria-required="true" aria-describedby="email-error" required>
-        <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" class="error-message" id="email-error">
-          O e-mail é obrigatório e deve ser um e-mail válido.
-        </div>
-        <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" class="error-message">
-          Formato de email inválido.
-        </div>
+<div class="wrapper">
+  <div class="container-fluid main">
+      <div class="row">
+          <div class="col-md-6 col-xs-12 custom-left">
+              <div class="text">
+                  <div class="info">
+                      <div class="container-fluid">
+                          <a class="navbar-brand" href="#">
+                            <img src="../assets/simbolo.png" alt="Logo" width="40" height="43"  class="d-inline-block align-text-top">
+                            Hotel Booking
+                          </a>
+                        </div>
+                     <p>O lugar onde hóspedes e 
+                     hotéis se encontram.
+                     <p id="inform"> Simples, fácil e conveniente.</p>
+                     </div>
+               
+              </div>
+          </div>
+
+          <div class="col-md-6 col-xs-12 custom-right">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <header>Seja bem-vindo!</header>
+              <div class="form-group">
+                <input id="email" formControlName="email" type="email" class="form-control" aria-required="true" aria-describedby="email-error" required>
+                <label for="email">Email</label>
+            
+                <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" class="error-message" id="email-error">
+                  O e-mail é obrigatório e deve ser um e-mail válido.
+                </div>
+                <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" class="error-message">
+                  Formato de email inválido.
+                </div>
+              </div>
+              <div class="form-group">
+                <input id="password" formControlName="password" type="password" class="form-control" aria-required="true" aria-describedby="password-error" required>
+                <label for="password">Senha</label>
+            
+                <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="error-message" id="password-error">
+                  Senha é obrigatória.
+                </div>
+              </div>
+              <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Entrar</button>
+              <div *ngIf="errorMessage" class="error-message" role="alert">{{ errorMessage }}</div>
+              <div class="links">
+                <a routerLink="/forgot-password">Esqueci minha senha</a>
+                <a routerLink="/register">Realizar Cadastro</a>
+              </div>
+            </form>
+                     
+          </div>
       </div>
-      <div class="form-group">
-        <label for="password">Senha</label>
-        <input id="password" formControlName="password" type="password" class="form-control" aria-required="true" aria-describedby="password-error" required>
-        <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="error-message" id="password-error">
-          Senha é obrigatória.
-        </div>
-      </div>
-      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Entrar</button>
-      <div *ngIf="errorMessage" class="error-message" role="alert">{{ errorMessage }}</div>
-      <div class="links">
-        <a routerLink="/forgot-password">Esqueci minha senha</a>
-        <a routerLink="/register">Realizar Cadastro</a>
-      </div>
-    </form>
   </div>
 </div>
