@@ -35,11 +35,12 @@ export class LoginComponent implements OnInit {
   // Após o login bem-sucedido, o método redireciona para a página inicial usando redirectToHome(), que é implementado no serviço AuthService.
   onSubmit(): void {
     this.submitted = true;
-    if (this.loginForm.valid) {
+    if(this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe({
-        next: () => {
-          console.log("Login bem-sucedido.");
+        next: (response) => {
+          console.log("Login bem-sucedio.");
+          this.authService.setToken(response.token);
           this.authService.redirectToHome();
         },
         error: () => this.errorMessage = 'Email ou senha incorretos.'

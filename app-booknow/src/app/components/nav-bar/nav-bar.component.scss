@@ -1,10 +1,10 @@
-/* Estilos para a barra de navegação */
 .navbar {
   background-color: #f07d14; /* Cor de fundo */
 }
 
 .navbar-brand, .nav-link {
   color: #fff !important; /* Cor do texto */
+  font-weight: bold;
 }
 
 .navbar-toggler-icon {
@@ -13,7 +13,7 @@
 
 .nav-link {
   &:hover {
-    color: #fff !important; /* Cor do texto ao passar o mouse */
+    color: #d4d4d4 !important; /* Cor do texto ao passar o mouse */
   }
 }
 

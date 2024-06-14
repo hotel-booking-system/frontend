@@ -11,8 +11,11 @@ import * as bootstrap from 'bootstrap';
 })
 export class NavBarComponent implements AfterViewInit, OnInit {
 
+  ngOnInit(): void {
+
+  }
+
   private deactivateModal: any;
-  dropdownOpen = false;
 
   constructor(
     private authService: AuthService,
@@ -20,13 +23,12 @@ export class NavBarComponent implements AfterViewInit, OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-    this.checkAuthentication();
-  }
-
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
   }
+
+  // No seu componente Angular
+  dropdownOpen = false;
 
   toggleDropdown(event: Event) {
     event.preventDefault();
