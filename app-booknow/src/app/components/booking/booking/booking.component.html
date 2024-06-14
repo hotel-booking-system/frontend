@@ -1,1 +1,45 @@
-<h2>Reserva</h2>
+<div class="container mt-4">
+  <div class="accommodation-form-container">
+    <div class="modal-header">
+      <h2 tabindex="0">Formulário de Reserva</h2>
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+    </div>
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+
+      <div class="mb-3">
+        <label for="accommodationId" class="form-label">ID da Acomodação:</label>
+        <input type="number" id="accommodationId" formControlName="accommodationId" class="form-control" required>
+        <div class="invalid-feedback">
+          Por favor, preencha o ID da acomodação.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="startDate" class="form-label">Data de Entrada:</label>
+        <input type="date" id="startDate" formControlName="startDate" class="form-control" required>
+        <div class="invalid-feedback">
+          Por favor, selecione a data de entrada.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="endDate" class="form-label">Data de Saída:</label>
+        <input type="date" id="endDate" formControlName="endDate" class="form-control" required>
+        <div class="invalid-feedback">
+          Por favor, selecione a data de saída.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="numGuests" class="form-label">Número de Hóspedes:</label>
+        <input type="number" id="numGuests" formControlName="numGuests" class="form-control" required>
+        <div class="invalid-feedback">
+          Por favor, informe o número de hóspedes.
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="bookingForm.invalid">Reservar</button>
+
+    </form>
+  </div>
+</div>

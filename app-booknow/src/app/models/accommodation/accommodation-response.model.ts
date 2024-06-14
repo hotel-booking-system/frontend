@@ -6,4 +6,6 @@ export interface AccommodationResponse {
   maxGuests: number;
   amenities: string;
   imageUrl?: string;
+  createdAt: string;
+  updatedAt: string;
 }

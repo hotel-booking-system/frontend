@@ -11,11 +11,8 @@ import * as bootstrap from 'bootstrap';
 })
 export class NavBarComponent implements AfterViewInit, OnInit {
 
-  ngOnInit(): void {
-
-  }
-
   private deactivateModal: any;
+  dropdownOpen = false;
 
   constructor(
     private authService: AuthService,
@@ -23,12 +20,13 @@ export class NavBarComponent implements AfterViewInit, OnInit {
     private router: Router
   ) { }
 
+  ngOnInit(): void {
+    this.checkAuthentication();
+  }
+
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
   }
-
-  // No seu componente Angular
-  dropdownOpen = false;
 
   toggleDropdown(event: Event) {
     event.preventDefault();
@@ -54,20 +52,20 @@ export class NavBarComponent implements AfterViewInit, OnInit {
   }
 
   deactivateAccount(): void {
-    const token = sessionStorage.getItem('token');
-    if (token) {
-      console.log('Desativando conta com token::', token);
-      this.userService.deactivateUser(token).subscribe({
-        next: () => {
-          console.log('Conta desativada com sucesso!');
-          this.logout();
-        },
-        error: err => {
-          console.error('Erro ao desativar a conta.', err);
-        }
-      });
-    } else {
-      console.error('Token não encontrado.');
+    this.userService.deactivateUser().subscribe({
+      next: () => {
+        console.log('Conta desativada com sucesso!');
+        this.logout();
+      },
+      error: err => {
+        console.error('Erro ao desativar a conta.', err);
+      }
+    });
+  }
+
+  private checkAuthentication(): void {
+    if (!this.isAuthenticated()) {
+      this.router.navigate(['/login']);
     }
   }
 

@@ -38,6 +38,7 @@ import { NotificationService } from './services/notification.service';
 import { PasswordService } from './services/password.service';
 import { UserService } from './services/user.service';
 import { BookingComponent } from './components/booking/booking/booking.component';
+import { DetailsModalComponent } from './components/details-modal/details-modal.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { BookingComponent } from './components/booking/booking/booking.component
     ConfirmResetPasswordComponent,
     BecomeHostComponent,
     AccommodationListComponent,
-    BookingComponent
+    BookingComponent,
+    DetailsModalComponent
   ],
   imports: [
     BrowserModule,

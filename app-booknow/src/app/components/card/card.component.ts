@@ -4,7 +4,9 @@ import { ToastrService } from 'ngx-toastr';
 import { AccommodationResponse } from 'src/app/models/accommodation/accommodation-response.model';
 import { AccommodationService } from 'src/app/services/accommodation.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { BookingService } from 'src/app/services/booking.service';
+import { AccommodationDetailsComponent } from '../accommodations/accommodation-details/accommodation-details.component';
+import { BookingComponent } from '../booking/booking/booking.component';
+import { DetailsModalComponent } from '../details-modal/details-modal.component';
 
 @Component({
   selector: 'app-card',
@@ -28,7 +30,6 @@ export class CardComponent {
     private toastr: ToastrService,
     private accommodationService: AccommodationService,
     public authService: AuthService,
-    private bookingService: BookingService,
     private modalService: NgbModal
   ) {
     this.isAuthenticated = this.authService.isAuthenticated();
@@ -40,10 +41,6 @@ export class CardComponent {
 
   editCard(): void {
     this.onEdit.emit(this.cardData.id);
-  }
-
-  viewDetails(): void {
-    this.onViewDetails.emit(this.cardData.id);
   }
 
   deleteCard(): void {
@@ -61,29 +58,30 @@ export class CardComponent {
     }
   }
 
-  bookingAccommodation() {
-    this.bookingService.bookingAccommodation(this.cardData.id).subscribe({
-      next: () => {
-        this.toastr.success('Acomodação reservada com sucesso!', 'Sucesso');
-      },
-      error: err => {
-        this.toastr.error('Erro ao reservar acomodação.', 'Erro');
-        console.error('Erro ao reservar acomodação:', err);
-      }
-    });
+  openDetailsModal(): void {
+    const modalRef = this.modalService.open(AccommodationDetailsComponent, { centered: true });
+    modalRef.componentInstance.accommodation = this.cardData;
   }
 
-  openDetailsModal() {
+  /*
+  openDetailsModal(): void {
     this.accommodationService.getAccommodationById(this.cardData.id).subscribe({
       next: (accommodation) => {
         this.selectedAccommodation = accommodation;
-        this.modalService.open('detailsModal');
+        const modalRef = this.modalService.open(DetailsModalComponent, { centered: true });
+        modalRef.componentInstance.accommodation = accommodation;
       },
       error: err => {
         this.toastr.error('Erro ao carregar detalhes da acomodação.', 'Erro');
         console.error('Erro ao carregar detalhes da acomodação:', err);
       }
     });
+  }*/
+
+  bookingAccommodation(): void {
+    const modalRef = this.modalService.open(BookingComponent, { size: 'lg' }); // 'lg' é o tamanho large, pode ser ajustado conforme necessário
+    modalRef.componentInstance.accommodationId = this.cardData.id; // Passe os dados necessários para o componente do modal
   }
+
 
 }

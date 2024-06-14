@@ -23,10 +23,9 @@ export class BecomeHostComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const token = sessionStorage.getItem('token');
-    if (this.acceptTerms && token) {
+    if (this.acceptTerms) {
       if (!this.isHost) {
-        this.userService.becomeHost(token).subscribe({
+        this.userService.becomeHost().subscribe({
           next: () => {
             alert('Você agora é um anfitrião!');
             this.router.navigate(['/home']);
@@ -40,22 +39,18 @@ export class BecomeHostComponent implements OnInit {
   }
 
   closeAlert(): void {
-    // this.showAlert = false;
     this.acceptTerms = false;
   }
 
   checkIsHost(): void {
-    const token = sessionStorage.getItem('token');
-    if (token) {
-      this.userService.isUserHost(token).subscribe({
-        next: (result) => {
-          this.isHost = result;
-        },
-        error: (err) => {
-          console.error('Erro ao verificar se o usuário é anfitrião', err);
-        }
-      });
-    }
+    this.userService.isUserHost().subscribe({
+      next: (result) => {
+        this.isHost = result;
+      },
+      error: (err) => {
+        console.error('Erro ao verificar se o usuário é anfitrião', err);
+      }
+    });
   }
 
 }
