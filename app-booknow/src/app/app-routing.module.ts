@@ -11,6 +11,7 @@ import { authGuard } from './guard/auth.guard';
 import { AccommodationDetailsComponent } from './components/accommodations/accommodation-details/accommodation-details.component';
 import { ResetPasswordComponent } from './components/password/reset-password/reset-password.component';
 import { BecomeHostComponent } from './components/become-host/become-host.component';
+import { BookingComponent } from './components/booking/booking/booking.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,8 +28,11 @@ const routes: Routes = [
   { path: 'accommodation/edit/:id', component: AccommodationFormComponent, canActivate: [authGuard] },
   { path: 'accommodation/:id/details', component: AccommodationDetailsComponent, canActivate: [authGuard] },
 
-  { path: 'become-host', component: BecomeHostComponent, canActivate: [authGuard] }
+  { path: 'bookings/register', component: BookingComponent, canActivate: [authGuard] },
 
+  { path: 'become-host', component: BecomeHostComponent, canActivate: [authGuard] },
+
+  { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({

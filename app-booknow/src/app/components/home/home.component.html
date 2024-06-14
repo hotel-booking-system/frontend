@@ -10,7 +10,8 @@
   </div>
   <div class="row">
     <div class="col-lg-3 col-md-6 mb-4" *ngFor="let accommodation of accommodations">
-      <app-card [cardData]="accommodation"
+      <app-card
+        [cardData]="accommodation"
         (onEdit)="editAccommodation(accommodation)"
         (onViewDetails)="viewDetails(accommodation)"
         (onDelete)="deleteAccommodation(accommodation)">

@@ -1,7 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Booking } from '../models/booking/booking.model';
+import { AccommodationResponse } from '../models/accommodation/accommodation-response.model';
+
+import { BookingRequest } from '../models/booking/booking-request.model';
+import { BookingResponse } from '../models/booking/booking-response.mode';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +14,23 @@ export class BookingService {
 
   private apiUrl = 'http://localhost:8080/booknow/bookings';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
-  reserveAccommodation(booking: Booking): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}`, booking);
+  createBooking(bookingRequest: BookingRequest): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + this.authService.getToken()  // Adapte conforme o seu serviço de autenticação
+    });
+
+    return this.http.post<any>(this.apiUrl, bookingRequest, { headers: headers });
   }
 
-  getAccommodationById(accommodationId: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/accommodations/${accommodationId}`);
-  }
+  // buscar reserva por ID
 
-  bookingAccommodation(accommodationId: number): Observable<any> {
-    return this.http.post(`${this.apiUrl}/reserve`, { accommodationId });
-  }
+  // listar reservad do usuário
+
+  // editar reserva
+
+  // excluir reserva
 
 }

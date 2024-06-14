@@ -1,0 +1,43 @@
+// Modal content styling
+.modal-content {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+
+  .modal-header {
+    background-color: #f8f9fa; // Cor de fundo do cabeçalho
+    border-bottom: 1px solid #dee2e6; // Linha inferior do cabeçalho
+    padding: 15px;
+
+    .modal-title {
+      font-size: 1.5rem; // Tamanho da fonte do título
+      font-weight: bold;
+    }
+
+    .btn-close {
+      color: #6c757d; // Cor do botão de fechar
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #343a40; // Cor do botão de fechar ao passar o mouse
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 20px;
+
+    p {
+      margin-bottom: 10px;
+      line-height: 1.6; // Espaçamento entre linhas para melhor legibilidade
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+    }
+  }
+}

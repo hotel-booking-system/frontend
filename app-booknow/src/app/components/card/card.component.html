@@ -1,4 +1,3 @@
-<!-- card.component.html -->
 <div *ngIf="cardData" class="card h-100">
   <div class="card-body">
     <h2 class="card-title">{{ cardData.title }}</h2>
@@ -6,31 +5,26 @@
     <div class="d-flex justify-content-between mt-3">
       <button *ngIf="isAuthenticated && hasUserPermission" class="btn btn-info mr-2" (click)="openDetailsModal()">Detalhes</button>
       <button *ngIf="isAuthenticated && hasUserPermission" class="btn btn-success mr-2" (click)="bookingAccommodation()">Reservar</button>
-      <button *ngIf="isAuthenticated && isOwner" class="btn btn-primary mr-2" (click)="editCard()">Editar</button>
-      <button *ngIf="isAuthenticated && isOwner" class="btn btn-danger" (click)="deleteCard()">Excluir</button>
+      <button *ngIf="isOwner" class="btn btn-primary mr-2" (click)="editCard()">Editar</button>
+      <button *ngIf="isOwner" class="btn btn-danger" (click)="deleteCard()">Excluir</button>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+<!-- Modal de Reserva -->
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="detailsModalLabel">Detalhes da Acomodação</h5>
+        <h5 class="modal-title" id="bookingModalLabel">Reservar Acomodação</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <ng-container *ngIf="selectedAccommodation">
-          <h2>{{ selectedAccommodation.title }}</h2>
-          <p>{{ selectedAccommodation.location }}</p>
-          <p>{{ selectedAccommodation.price }}</p>
-          <p>{{ selectedAccommodation.maxGuests }}</p>
-          <p>{{ selectedAccommodation.amenities }}</p>
-        </ng-container>
+        <!-- Conteúdo do modal de reserva -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-success">Confirmar Reserva</button>
       </div>
     </div>
   </div>

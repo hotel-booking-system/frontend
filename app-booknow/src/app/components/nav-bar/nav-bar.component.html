@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light"> <!-- NAV -->
   <div class="container-fluid"> <!-- CONTAINER -->
 
-    <a class="navbar-brand text-white" href="#">Booking Now</a>
+    <a class="navbar-brand text-white" routerLink="/">Booking Now</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,43 +11,35 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
         <li class="nav-item" *ngIf="!isAuthenticated()">
-          <a class="nav-link text-white" routerLink="/login" routerLinkActive="active"
-          ariaCurrentWhenActive="page">Entrar</a>
+          <a class="nav-link text-white" routerLink="/login" routerLinkActive="active" aria-current="page">Entrar</a>
         </li>
 
         <li class="nav-item" *ngIf="!isAuthenticated()">
-          <a class="nav-link text-white" routerLink="/register" routerLinkActive="active"
-          ariaCurrentWhenActive="page">Cadastro de Usuário</a>
+          <a class="nav-link text-white" routerLink="/register" routerLinkActive="active" aria-current="page">Cadastro de Usuário</a>
         </li>
 
         <li class="nav-item dropdown" *ngIf="isAuthenticated()">
-          <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#"
-            role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             Configurações
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/users/update"
-              routerLinkActive="active" ariaCurrentWhenActive="page">Atualizar dados do Usuário</a></li>
-            <li><a class="dropdown-item" routerLink="/users/update-password"
-              routerLinkActive="active" ariaCurrentWhenActive="page">Atualizar Senha</a></li>
+            <li><a class="dropdown-item" routerLink="/users/update" routerLinkActive="active" aria-current="page">Atualizar dados do Usuário</a></li>
+            <li><a class="dropdown-item" routerLink="/users/update-password" routerLinkActive="active" aria-current="page">Atualizar Senha</a></li>
             <li><a class="dropdown-item text-danger" (click)="openDeactivateModal()">Excluir Conta</a></li>
           </ul>
         </li>
 
         <li class="nav-item dropdown" *ngIf="isAuthenticated()">
-          <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#"
-            role="button" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             Acomodações
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/accommodations/register"
-              routerLinkActive="active" ariaCurrentWhenActive="page">Cadastrar Acomodação</a></li>
-            <li><a class="dropdown-item" routerLink="/accommodation/edit/:id"
-              routerLinkActive="active" ariaCurrentWhenActive="page">Editar Acomodação</a></li>
-            <li><a class="dropdown-item" routerLink="/accommodations/delete"
-              routerLinkActive="active" ariaCurrentWhenActive="page">Excluir Acomodação</a></li>
-            <li><a class="dropdown-item" routerLink="/accommodations/search"
-              routerLinkActive="active" ariaCurrentWhenActive="page">Buscar acomodação</a></li>
+            <li><a class="dropdown-item" routerLink="/accommodations/register" routerLinkActive="active" aria-current="page">Cadastrar Acomodação</a></li>
+            <li><a class="dropdown-item" routerLink="/accommodation/edit/:id" routerLinkActive="active" aria-current="page">Editar Acomodação</a></li>
+            <li><a class="dropdown-item" routerLink="/accommodations/delete" routerLinkActive="active" aria-current="page">Excluir Acomodação</a></li>
+            <li><a class="dropdown-item" routerLink="/accommodations/search" routerLinkActive="active" aria-current="page">Buscar acomodação</a></li>
           </ul>
         </li>
 

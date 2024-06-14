@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.accommodation-form-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 600px) {
+    padding: 10px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f07d14; // Cor do título
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #f07d14; // Cor do texto do label
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+
+      &:focus {
+        outline: none;
+        border-color: #f07d14; // Cor do contorno ao focar
+      }
+    }
+
+    small.text-danger {
+      margin-top: 5px;
+      display: block; // Para que as mensagens de erro fiquem uma abaixo da outra
+    }
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: #f07d14;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken(#f07d14, 10%);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
