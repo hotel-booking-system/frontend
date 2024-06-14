@@ -37,6 +37,7 @@ import { DataService } from './services/data.service';
 import { NotificationService } from './services/notification.service';
 import { PasswordService } from './services/password.service';
 import { UserService } from './services/user.service';
+import { BookingComponent } from './components/booking/booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { UserService } from './services/user.service';
     ResetPasswordComponent,
     ConfirmResetPasswordComponent,
     BecomeHostComponent,
-    AccommodationListComponent
+    AccommodationListComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,
