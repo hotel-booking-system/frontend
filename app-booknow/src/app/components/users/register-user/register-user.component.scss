@@ -1,8 +1,188 @@
+
+.input-box header{
+  font-size:24px ;
+  color: #f07d14;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 5px;
+}
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.custom-left,
+.custom-right {
+  min-height: 100vh; /* Define a altura mínima para ocupar toda a altura da tela */
+}
+
+.custom-left {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #f07d14; /* Escolha a cor desejada */
+}
+
+.info {
+  width: 380px;
+}
+
+.info a {
+  font-size: 32px;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+}
+
+.info p {
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+#inform {
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+.custom-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+form {
+  width: 430px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra à div */
+  padding: 20px;
+  border-radius: 16px;
+  background-color: #fff;
+}
+
+form header {
+  font-size: 24px;
+  color: #f07d14;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  height: 45px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #f07d14;
+  outline: none;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.form-group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.3s ease all;
+  color: #f07d14;
+  font-size: 16px;
+}
+
+.form-control:focus ~ label,
+.form-control:not(:placeholder-shown) ~ label {
+  top: -10px;
+  font-size: 13px;
+}
+
+.form-control:focus,
+.form-control:not(:placeholder-shown) {
+  border-bottom: 1px solid #f07d14;
+}
+
+.password-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.password-field {
+  flex: 1;
+  position: relative;
+}
+
+.password-field label {
+  left: 10px;
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  height: 45px;
+  background-color: #f07d14;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.4s;
+}
+
+.btn-primary:hover {
+  background-color: darken(#f07d14, 10%);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links a {
+  text-decoration: none;
+  color: #f07d14;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
+.form-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .register-user-container {

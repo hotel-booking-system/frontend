@@ -5,7 +5,6 @@
 
 .navbar-brand, .nav-link {
   color: #fff !important; /* Cor do texto */
-  font-weight: bold;
 }
 
 .navbar-toggler-icon {
@@ -14,7 +13,7 @@
 
 .nav-link {
   &:hover {
-    color: #d4d4d4 !important; /* Cor do texto ao passar o mouse */
+    color: #fff !important; /* Cor do texto ao passar o mouse */
   }
 }
 
