@@ -4,9 +4,57 @@
   align-items: center;
   padding: 20px;
 }
+
 .container a{
   position: absolute;
   right: 15px;
+}
+
+.search-input{
+  display: flex;
+  align-items: center; /* Alinha verticalmente */
+  justify-content: center; /* Alinha horizontalmente */
+  margin-top: 10px;
+}
+
+.input-group{
+  width: 500px;
+   background-color: white; /*f07d14*/
+   border: 2px solid #f07d14;
+   height: 40px;
+   border-radius: 16px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.form-control:focus {
+   outline: none;
+   box-shadow: none;
+ }
+.form-control{
+   background: none;
+   border: 0;
+   outline: 0;
+   font-size: 16px;
+}
+
+.btn img{ 
+   width: 25px;
+   height: 25px;
+}
+
+.input-group-append .btn-outline-secondary {
+  border: none;
+  background-color: transparent;
+}
+
+.container-cards {
+  width: 100%;
+  padding: 30px;
+}
+.input-group-append .btn-outline-secondary {
+  border: none;
+  background-color: transparent;
 }
 .row {
   display: flex;
