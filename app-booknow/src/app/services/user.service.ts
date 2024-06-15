@@ -35,8 +35,8 @@ export class UserService {
     return this.http.put<string>(`${this.apiUrl}/update-password`, updatePasswordRequest, { headers });
   }
 
-  deactivateUser(): Observable<void> {
-    const headers = this.getAuthHeaders();
+  deactivateUser(token: string): Observable<void> {
+    const headers = { 'Authorization': `Bearer ${token}` };
     return this.http.delete<void>(`${this.apiUrl}/delete`, { headers });
   }
 

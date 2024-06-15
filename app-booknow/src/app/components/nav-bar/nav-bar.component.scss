@@ -1,62 +1,84 @@
+// Estilos para a barra de navegação
 .navbar {
-  background-color: #f07d14; /* Cor de fundo */
-}
+  background-color: #f07d14; // Cor de fundo
+  padding: 1rem; // Espaçamento interno
 
-.navbar-brand, .nav-link {
-  color: #fff !important; /* Cor do texto */
+  .navbar-brand {
+    color: #fff; // Cor do texto
+    img {
+      margin-right: 10px; // Espaçamento entre o ícone e o texto
+    }
+  }
 
-}
+  .nav-link {
+    color: #fff !important; // Cor do texto
+    &:hover {
+      color: #fff; // Cor do texto ao passar o mouse
+    }
+  }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%287, 7, 7, 0.7%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%287, 7, 7, 0.7%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
 
-.nav-link {
-  &:hover {
-    color: #fff !important; /* Cor do texto ao passar o mouse */
+  .navbar-nav {
+    .nav-item {
+      margin-right: 10px; // Espaçamento entre os itens da barra de navegação
+      &:last-child {
+        margin-right: 0; // Remove o espaçamento do último item
+      }
+    }
   }
 }
 
-/* Responsividade para dispositivos móveis */
+// Responsividade para dispositivos móveis
 @media (max-width: 768px) {
   .navbar {
-    .nav-item {
-      text-align: center;
+    .navbar-collapse {
+      .nav-item {
+        text-align: center; // Alinhamento central dos itens
+        margin-top: 10px; // Espaçamento entre os itens
+        margin-right: 0; // Remove o espaçamento lateral nos dispositivos móveis
+        &:last-child {
+          margin-bottom: 10px; // Espaçamento inferior para o último item
+        }
+      }
     }
   }
 }
 
-/* Estilos para dropdown */
+// Estilos para dropdown
 .dropdown-menu {
-  background-color: #fff; /* Fundo branco */
+  background-color: #fff; // Fundo branco
   .dropdown-item {
-    color: #f07d14; /* Cor do texto padrão */
+    color: #f07d14; // Cor do texto padrão
     &:hover {
-      background-color: #f5a060; /* Fundo mais claro ao passar o mouse */
-      color: #fff; /* Cor do texto ao passar o mouse */
+      background-color: #f5a060; // Fundo mais claro ao passar o mouse
+      color: #fff; // Cor do texto ao passar o mouse
     }
   }
 }
 
-/* Estilos para modal */
+// Estilos para modal
 .modal-content {
-  .modal-header, .modal-footer {
-    background-color: #f07d14;
-    color: #fff;
+  .modal-header,
+  .modal-footer {
+    background-color: #f07d14; // Cor de fundo do cabeçalho e rodapé
+    color: #fff; // Cor do texto do cabeçalho e rodapé
   }
 
   .btn-close {
-    background-color: transparent;
-    border: none;
+    background-color: transparent; // Botão de fechar transparente
+    border: none; // Sem borda
   }
-}
 
-.btn-danger {
-  background-color: #dc3545;
-  border-color: #dc3545;
-}
+  .btn-danger {
+    background-color: #dc3545; // Botão de perigo
+    border-color: #dc3545; // Cor da borda do botão de perigo
+  }
 
-.btn-secondary {
-  background-color: #6c757d;
-  border-color: #6c757d;
+  .btn-secondary {
+    background-color: #6c757d; // Botão secundário
+    border-color: #6c757d; // Cor da borda do botão secundário
+  }
 }

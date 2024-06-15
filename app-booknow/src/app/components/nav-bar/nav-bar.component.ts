@@ -54,20 +54,20 @@ export class NavBarComponent implements AfterViewInit, OnInit {
   }
 
   deactivateAccount(): void {
-    this.userService.deactivateUser().subscribe({
-      next: () => {
-        console.log('Conta desativada com sucesso!');
-        this.logout();
-      },
-      error: err => {
-        console.error('Erro ao desativar a conta.', err);
-      }
-    });
-  }
-
-  private checkAuthentication(): void {
-    if (!this.isAuthenticated()) {
-      this.router.navigate(['/login']);
+    const token = sessionStorage.getItem('token');
+    if (token) {
+      console.log('Desativando conta com token::', token);
+      this.userService.deactivateUser(token).subscribe({
+        next: () => {
+          console.log('Conta desativada com sucesso!');
+          this.logout();
+        },
+        error: err => {
+          console.error('Erro ao desativar a conta.', err);
+        }
+      });
+    } else {
+      console.error('Token não encontrado.');
     }
   }
 
